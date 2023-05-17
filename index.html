@@ -1,0 +1,62 @@
+<script>
+    let userInput = prompt('Choose your fighter! Rock, Paper, or Scissors?');
+    const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
+    const playerSelection = userInput;
+    
+
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+            return console.log('You Win! Rock beats Paper');
+        }
+    }
+
+    
+
+    function getComputerChoice() {
+        var random = Math.floor(Math.random() * rockPaperScissors.length);
+        var computerChoice = rockPaperScissors[random];
+        return computerChoice;
+    }
+
+</script>
+
+<!-- Rock Paper Scissors Pseudocode
+1. Player chooses between three different options: Rock(1), Paper(2), or Scissors(3)
+    Use the prompt() command and have the input = playerSelection
+
+2. Computer randomly picks between Rock(1), Paper(2), or Scissors(3)
+    - math.floor(math.random() * myArray.length);
+        - computer selects between three different strings: Rock, Paper, or Scissors
+        - Problem: when I use console.log(computerSelection) the value that is the getComputerChoice function does not change. The variable computerSelection holds the value and does not change. 
+
+3. If player chooses Rock(1) and the Computer chooses Scissors(3): return Player Wins!
+    - if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+        return console.log('You win! Rock beats Scissors')
+    }
+
+4. If Player chooses Paper and the Computer chooses Rock: return Player Wins!
+    - if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        return console.log('You Win! Paper beats Rock')
+    }
+
+5. If Player chooses Scissors and the Computer chooses Paper: return Player Wins!
+    - if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+        return console.log('You Win! Scissors beats Paper');
+    }
+6. If Computer chooses Rock and the Player chooses Scissors: return Computer Wins!
+    - if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+        return console.log('You Lose! Rock beats Scissors');
+    }
+7. If Computer chooses Paper and the Player chooses Rock: return Computer Wins!
+    - if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        return console.log('You Lose! Paper beats Rock');
+    }
+8. If Computer chooses Scissors and the Player chooses Paper: return Computer Wins!
+    - if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        return console.log('You Lose! Scissors beats Paper');
+    }
+9. If the Player and the Computer choose the same things: return Tie! 
+        - else {
+            return console.log ('Tie!')
+        }-->
