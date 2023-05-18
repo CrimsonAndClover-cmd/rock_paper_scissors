@@ -1,27 +1,49 @@
 <script>
-    let userInput = prompt('Choose your fighter! Rock, Paper, or Scissors?');
-    const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
-    const playerSelection = userInput;
-    
-
+    const rockPaperScissors = ['rock', 'paper', 'scissors'];
 
     function playRound(playerSelection, computerSelection) {
-        if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-            return console.log('You Win! Rock beats Paper');
+        if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            return console.log('You Win! Rock beats Scissors');
+        } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+            return console.log('You Win! Paper beats Rock');
+        } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            return console.log('You Win! Scissors beats Paper');
+        } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+            return console.log('You Lose! Paper beats Rock');
+        } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            return console.log('You Lose! Scissors beats Paper');
+        } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            return console.log('You Lose! Rock beats Scissors');
+        } else {
+            return console.log('Tie! Try again!');
         }
-    }
+    };
 
+    function game() {
+        for (let i = 0; i <5; i++) {
+            const promptInput = prompt('Choose your fighter!');
+            const userInput = promptInput.toLowerCase();
+            const computerInput = getComputerChoice();
+            const result = playRound(userInput, computerInput);
+            console.log(result);
+        };
+        
+    };
     
 
     function getComputerChoice() {
         var random = Math.floor(Math.random() * rockPaperScissors.length);
-        var computerChoice = rockPaperScissors[random];
-        return computerChoice;
+        var computerSelection = rockPaperScissors[random];
+        return computerSelection;
     }
 
 </script>
 
 <!-- Rock Paper Scissors Pseudocode
+
+    Prompt needs to take lowercase and uppercase inputs:
+        First we need to convert the string that the user inputs into lowercase
+        Then we can do an equality check ( == ) to compare the playerSelection to the 'rock' string in the playRound function
 1. Player chooses between three different options: Rock(1), Paper(2), or Scissors(3)
     Use the prompt() command and have the input = playerSelection
 
@@ -59,4 +81,6 @@
 9. If the Player and the Computer choose the same things: return Tie! 
         - else {
             return console.log ('Tie!')
-        }-->
+        }
+
+    -->
